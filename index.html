@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>My Drag-and-Drop Example</title>
+    <link rel="stylesheet" href="css/style.css" />
+  </head>
+  <body>
+    <div class="example-parent">
+      <div class="example-origin">
+        <div
+          id="draggable-1"
+          class="example-draggable"
+          draggable="true"
+          ondragstart="onDragStart(event);"
+        >
+          thing 1
+        </div>
+        <div
+        id="draggable-2"
+        class="example-draggable"
+        draggable="true"
+        ondragstart="onDragStart(event);"
+      >
+        thing 2
+      </div>
+      <div
+        id="draggable-3"
+        class="example-draggable"
+        draggable="true"
+        ondragstart="onDragStart(event);"
+      >
+        thing 3
+      </div>
+      <div
+        id="draggable-4"
+        class="example-draggable"
+        draggable="true"
+        ondragstart="onDragStart(event);"
+      >
+        thing 4
+      </div>
+      </div>
+    </div>
+
+
+
+<div class="grid-container">
+  <div class="item1"
+  ondragover="onDragOver(event);"
+  ondrop="onDrop(event);"
+  >I</div>
+  <div class="item2"         ondragover="onDragOver(event);"
+  ondrop="onDrop(event);">II</div>
+  <div class="item3"         ondragover="onDragOver(event);"
+  ondrop="onDrop(event);">III</div>  
+  <div class="item4"         ondragover="onDragOver(event);"
+  ondrop="onDrop(event);">IV</div>
+  <!-- <div class="item5">5</div>
+  <div class="item6">6</div> -->
+</div>
+    <script src="js/script.js"></script>
+    <script type="text/javascript">
+      var apiUrl = "https://api.todoist.com/rest/v1/tasks?project_id=2242454039";
+      fetch(apiUrl, { 
+   method: 'get', 
+  //  params:{
+  //       "project_id": 2242454039
+  //   },
+   headers: new Headers({
+     'Authorization': 'Bearer '+'token', 
+    //  'Content-Type': 'application/x-www-form-urlencoded'
+   })}).then(response => {
+        return response.json();
+      }).then(data => {
+        // Work with JSON data here
+        console.log(data);
+      }).catch(err => {
+        // Do something for an error here
+      });
+  </script>
+  </body>
+</html>
